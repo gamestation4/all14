@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html manifest="cache.manifest" lang="ar" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PS Clinic - 9.00 FW Host v3.0</title>
+<style>
+  :root {
+    --primary-color: #0072CE; /* PlayStation Blue */
+    --accent-color: #00D2FF;
+    --bg-color: #0d0f12;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --text-color: #ffffff;
+    --text-dim: #a0a0a0;
+  }
+
+  body {
+    background-color: var(--bg-color);
+    background-image: radial-gradient(circle at center, #1a233a 0%, #0d0f12 100%);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 95vh;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  .header {
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  .logo {
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #fff;
+    text-transform: uppercase;
+    text-shadow: 0 0 15px rgba(0, 114, 206, 0.6);
+  }
+
+  .logo span {
+    color: var(--accent-color);
+  }
+
+  .sub-title {
+    font-size: 15px;
+    color: var(--text-dim);
+    margin-top: 3px;
+  }
+
+  .phones-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+  }
+
+  .phone-badge {
+    background: rgba(0, 210, 255, 0.1);
+    border: 1px solid rgba(0, 210, 255, 0.3);
+    color: var(--accent-color);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    direction: ltr;
+  }
+
+  .main-container {
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 35px 25px;
+    max-width: 750px;
+    width: 100%;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(4px);
+    box-sizing: border-box;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 250px;
+  }
+
+  #msgs {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--accent-color);
+    margin: 0;
+    transition: all 0.2s ease;
+    text-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
+  }
+
+  .footer {
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-top: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 15px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .footer a {
+    color: #f31414;
+    text-decoration: none;
+    margin: 0 5px;
+  }
+
+  .footer a:hover {
+    text-decoration: underline;
+  }
+</style>
+</head>
+<body>
+
+<script>
+  history.replaceState(null, null, 'index.html');
+  var histlength = history.length;
+  try {
+    history.go(-histlength);
+  } catch(e) {}
+
+  function DLProgress(e) {
+    Percent = (Math.round(e.loaded / e.total * 100));
+    setTimeout(function() {
+      window.msgs.innerHTML = "Installing Offline Cache: " + Percent + "%";
+    }, 500);
+  }
+
+  function DisplayCacheProgress() {
+    setTimeout(function() {
+      window.msgs.innerHTML = "Cache Installed Successfully ✔";
+    }, 1500);
+    setTimeout(function() {
+      window.msgs.innerHTML = "Now Close And Re-Open Your Browser ...";
+    }, 3500);
+  }
+
+  window.applicationCache.addEventListener("progress", DLProgress, false);
+  window.applicationCache.oncached = function(e) { DisplayCacheProgress(); };
+  window.applicationCache.onupdateready = function(e) { DisplayCacheProgress(); };
+</script>
+
+  <!-- Header Section -->
+  <div class="header">
+    <div class="logo">PS <span>CLINIC</span></div>
+    <div class="sub-title">PS4 9.00 FW Host v3.0 | Automatic Exploitation</div>
+    <div class="phones-container">
+      <span class="phone-badge">📞 01095496805</span>
+      <span class="phone-badge">📞 01094035620</span>
+    </div>
+  </div>
+
+  <!-- Main Container for Cache Messages -->
+  <div class="main-container">
+    <h1 id="msgs">Wait a Moment...</h1>
+  </div>
+
+  <!-- Footer Credits -->
+  <div class="footer">
+    Special Thanks to: 
+    <a href="https://twitter.com/sleirsgoevy">@sleirsgoevy</a> | 
+    ChendoChap | 
+    <a href="https://twitter.com/Znullptr">@Znullptr</a> | 
+    SiSTR0
+  </div>
+
+</body>
+</html>

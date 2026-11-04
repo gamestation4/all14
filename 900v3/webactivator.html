@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PS Clinic - Loading Payload</title>
+<link rel="stylesheet" href="../style.css">
+<style>
+  :root {
+    --primary-color: #0072CE; /* PlayStation Blue */
+    --accent-color: #00D2FF;
+    --bg-color: #0d0f12;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --text-color: #ffffff;
+    --text-dim: #a0a0a0;
+  }
+
+  body {
+    background-color: var(--bg-color);
+    background-image: radial-gradient(circle at center, #1a233a 0%, #0d0f12 100%);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 95vh;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  .header {
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  .logo {
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #fff;
+    text-transform: uppercase;
+    text-shadow: 0 0 15px rgba(0, 114, 206, 0.6);
+  }
+
+  .logo span {
+    color: var(--accent-color);
+  }
+
+  .sub-title {
+    font-size: 15px;
+    color: var(--text-dim);
+    margin-top: 3px;
+  }
+
+  .phones-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+  }
+
+  .phone-badge {
+    background: rgba(0, 210, 255, 0.1);
+    border: 1px solid rgba(0, 210, 255, 0.3);
+    color: var(--accent-color);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    direction: ltr;
+  }
+
+  .main-container {
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 35px 25px;
+    max-width: 750px;
+    width: 100%;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(4px);
+    box-sizing: border-box;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 220px;
+  }
+
+  #msgs {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--accent-color);
+    margin: 0 0 15px 0;
+    transition: all 0.2s ease;
+    text-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
+  }
+
+  .sub-msg {
+    font-size: 16px;
+    color: var(--text-dim);
+    margin: 0;
+  }
+
+  .footer {
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-top: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 15px;
+    width: 100%;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <div class="header">
+    <div class="logo">PS <span>CLINIC</span></div>
+    <div class="sub-title">Payload Execution Hub</div>
+    <div class="phones-container">
+      <span class="phone-badge">📞 01095496805</span>
+      <span class="phone-badge">📞 01094035620</span>
+    </div>
+  </div>
+
+  <!-- Main Container for Loading Status -->
+  <div class="main-container">
+    <h1 id="msgs">Loading Payload... Please Wait !!!</h1>
+    <p class="sub-msg">This will take a time between 20 and 40 seconds ...</p>
+  </div>
+
+  <!-- Hidden Elements / Table Preserved for Script Compatibility -->
+  <div style="opacity: 0; position: absolute; pointer-events: none;">
+    <p><i>Italic text</i></p>
+    <table>
+      <tr>
+        <th>H1</th>
+        <th>H2</th>
+        <th>H3</th>
+      </tr>
+      <tr>
+        <td>text</td>
+        <td><input value="text"/></td>
+        <td><button>text</button></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Footer Credits -->
+  <div class="footer">
+    PS Clinic - All rights reserved
+  </div>
+
+<script>
+function loadScript(path)
+{
+    var xhr = new XMLHttpRequest(path);
+    xhr.open("GET", path, false);
+    xhr.send('');
+    return xhr.responseText;
+}
+
+setTimeout(function(){
+eval.call(window, loadScript('netcat.js')
++loadScript('exploit.js')
++loadScript('malloc.js')
++loadScript('rop2.js')
++loadScript('syscalls.js')
++loadScript('syscalls2.js')
++loadScript('payload.js')
++loadScript('relocator.js')
++loadScript('frontend.js'));
+var qElem = document.getElementById('q');
+if(qElem) { qElem.innerHTML = 'Some other text'; }
+}, 50);
+</script>
+
+</body>
+</html>
